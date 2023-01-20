@@ -19,7 +19,8 @@ const checkTime = async (client) => {
   const kst = new Date(nowGetTime + timeDiff);
   const kstHour = kst.getHours();
   const kstMinute = kst.getMinutes();
-
+  const kstDay = kst.getDay();
+  if (kstDay === 0 || kstDay === 6) return;
   if (kstHour === 8 && kstMinute === 50) {
     const message = await channel.send({
       content: `@everyone 아침 입실시간입니다~⏰`,
